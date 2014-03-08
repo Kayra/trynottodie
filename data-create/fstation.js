@@ -2,8 +2,8 @@ function extract (var data) {
 
 	//Constants
 	var json = JSON.parse(data);
-	var type = "FStation";
-	var mainS = "false";
+	var type = '"FStation"';
+	var mainS = '"false"';
 
 	var rating = 0;
 	var lat;
@@ -15,11 +15,11 @@ function extract (var data) {
 
 	for (var i =0; i < length; i ++) {
 
-		if (json[i].Sub_Building_Name.indexOf("WESTBORNE") != -1) {
+		if (json[i].["Sub_Building_Name"].indexOf("WESTBORNE") != -1) {
 			mainS = true;
 		}
-		xcoord = json[i].X;
-		ycoord = json[i].Y;
+		xcoord = json[i].["X"];
+		ycoord = json[i].["Y"];
 
 		lon = XtoLon(xcoord);
 		lat = YtoLat(ycoord);
