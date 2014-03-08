@@ -2,8 +2,8 @@ function extract (var data) {
 
 	//Constants
 	var json = JSON.parse(data);
-	var type = "Food";
-	var mainS = "false";
+	var type = '"Food"';
+	var mainS = '"false"';
 
 	var rating;
 	var lat;
@@ -18,12 +18,28 @@ function extract (var data) {
 		lon = json.EstablishmentCollection[i].["Geocode"].["Longitude"];
 
 		var jsonItem = new Object();
-		
+
 		jsonItem.id = i;
 		jsonItem.type = type;
 		jsonItem.mainS = mainS;
 		jsonItem.rating = rating;
 		jsonItem.lat = lat;
 		jsonItem.lon = lon;
+
+		console.log(
+			'{' +
+				'"type":' + '"Feature"' + ',' +
+				'"geometry":' + '{' +
+					'"type":' + '"Point"' + ',' +
+					'"coordinates":' + '[' + lat + ',' + lon + ']' +
+			'}' + ',' +
+
+			'"properties":' + '{' +
+					'"type":' + type + ',' +
+					'"mainS"' + '"' + mainS +'"' +
+					'"rating":' + '"' + rating + "" +
+				'}' +
+			'}'
+		);
 	}
 }
