@@ -1,0 +1,9 @@
+#intro-text{
+   position: absolute; 
+   top: 15%; 
+   left: 0; 
+   width: 100%;
+   text-align: center;
+   font-family: 'Droid Sans', sans-serif;
+   font-size: 7em;
+}

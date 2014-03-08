@@ -5,8 +5,7 @@ var map;
 function initialize() {
     var mapOptions = {
         zoom: 15,
-        center: new google.maps.LatLng(50.718175, -1.876167),
-        // mapTypeId: google.maps.MapTypeId.TERRAIN,
+        center: new google.maps.LatLng(50.727928, -1.864728),
         disableDefaultUI: true
     };
 
