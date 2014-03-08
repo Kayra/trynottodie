@@ -1,7 +1,7 @@
-jQuery.ajax({
+/*jQuery.ajax({
 	type: "GET",
 	url : "https://raw.github.com/Kayra/trynottodie/master/Data/Food_Hygiene.json",
-	dataType : "text",
+	dataType : "json",
 	success : function(e){
 		console.log(e);
 		e = JSON.parse(e);
@@ -9,12 +9,25 @@ jQuery.ajax({
 	}, error: function(err){
 		console.log(err);
 	}
-})
+})*/
+
+(function(){
+
+	var spt = document.createElement('script');
+		spt.src = 'https://gist.githubusercontent.com/RobbyCowell/9435502/raw/ab5d00330c432177325f52ad1ca604809875ddb0/food.js';
+		spt.onload = function(){
+			console.log(sean);
+		};
+
+	document.body.appendChild(spt);
+
+})();
 
 function extract (data) {
 
+
 	//Constants
-	var json = JSON.parse(data);
+	var json = data;
 	var type = '"Food"';
 	var mainS = '"false"';
 
@@ -22,13 +35,15 @@ function extract (data) {
 	var lat;
 	var lon;
 
-	var length = json["EstablishmentCollection"].length;
+	var length = data.length;
 
-	for (var i =0; i < length; i ++) {
+	document.body.innerHTML = "";
 
-		rating = json.EstablishmentCollection[i].RatingValue;
-		lat = json.EstablishmentCollection[i].["Geocode"].["Latitude"];
-		lon = json.EstablishmentCollection[i].["Geocode"].["Longitude"];
+	for (var i =0; i < length; i += 1) {
+
+		rating = data[i].RatingValue;
+		lat = data[i].Geocode.Latitude;
+		lon = data[i].Geocode.Longitude;
 
 		var jsonItem = new Object();
 
@@ -39,8 +54,7 @@ function extract (data) {
 		jsonItem.lat = lat;
 		jsonItem.lon = lon;
 
-		console.log(
-			'{' +
+		document.body.innerHTML += '{' +
 				'"type":' + '"Feature"' + ',' +
 				'"geometry":' + '{' +
 					'"type":' + '"Point"' + ',' +
@@ -49,10 +63,13 @@ function extract (data) {
 
 			'"properties":' + '{' +
 					'"type":' + type + ',' +
-					'"mainS"' + '"' + mainS +'"' +
+					'"mainS":' + '"' + mainS +'"' + ',' +
 					'"rating":' + '"' + rating + "" +
 				'}' +
-			'}'
-		);
+			'}';
+
+		
+		
+
 	}
 }
