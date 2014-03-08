@@ -1,4 +1,17 @@
-function extract (var data) {
+jQuery.ajax({
+	type: "GET",
+	url : "https://raw.github.com/Kayra/trynottodie/master/Data/Food_Hygiene.json",
+	dataType : "text",
+	success : function(e){
+		console.log(e);
+		e = JSON.parse(e);
+		extract(e);
+	}, error: function(err){
+		console.log(err);
+	}
+})
+
+function extract (data) {
 
 	//Constants
 	var json = JSON.parse(data);
