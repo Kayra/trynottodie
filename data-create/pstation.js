@@ -15,7 +15,7 @@ function extract (data) {
 
 	//Constants
 	var json = data;
-	var type = '"FStation"';
+	var type = '"PStation"';
 	var mainS = '"false"';
 
 	var rating = 0;
@@ -30,7 +30,7 @@ function extract (data) {
 
 	for (var i =0; i < length; i ++) {
 
-		if (json[i].["Sub_Building_Name"].indexOf("WESTBORNE") != -1) {
+		if (json[i].["ORGANISATION"].indexOf("BOURNEMOUTH CENTRAL POLICE STATION") != -1) {
 			mainS = true;
 		}
 		xcoord = json[i].["X"];
