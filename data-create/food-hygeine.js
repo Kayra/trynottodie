@@ -67,6 +67,6 @@ function extract (data) {
 					'"mainS":' + mainS + ',' +
 					'"rating":' + '"' + rating + '"' +
 				'}' +
-			'}';
+			'}' + ',';
 	}
 }
