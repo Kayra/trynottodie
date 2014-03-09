@@ -12,13 +12,15 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
     var script = document.createElement('script');
-    script.src = "https://gist.githubusercontent.com/RobbyCowell/9446741/raw/70807cd32a8734ac44175e6a290b5d906d37a649/food-to-map.js";
+    script.src = "https://gist.githubusercontent.com/RobbyCowell/9446741/raw/aacf08130423752693cccaca62f3f91df0513da1/food-to-map.js";
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(script, s); 
+
+    execute(script);
 }
 
-window.food_callback = function() {
-    var heatMapData = [];
+function execute(results) {
+    var heatmapData = [];
     for (var i = 0; i < results.length; i++) {
         var coords = results[i].geometry.coordinates;
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
