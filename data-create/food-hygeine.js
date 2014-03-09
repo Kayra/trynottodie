@@ -25,6 +25,7 @@
 
 function extract (data) {
 
+	//extract(sean.EstablishmentCollection);
 
 	//Constants
 	var json = data;
@@ -63,13 +64,9 @@ function extract (data) {
 
 			'"properties":' + '{' +
 					'"type":' + type + ',' +
-					'"mainS":' + '"' + mainS +'"' + ',' +
-					'"rating":' + '"' + rating + "" +
+					'"mainS":' + mainS + ',' +
+					'"rating":' + '"' + rating + '"' +
 				'}' +
 			'}';
-
-		
-		
-
 	}
 }
