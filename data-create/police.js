@@ -13,25 +13,26 @@ function extract (var data) {
 
 	for (var i =0; i < length; i ++) {
 
-		if (json[i].[""].indexOf("") != -1) {
+		if (json[i].["Crime type"].indexOf("Other theft") != -1) {
 			rating = 1;
 		}
-		if (json[i].[""].indexOf("") != -1) {
+		else if (json[i].["Crime type"].indexOf("Anti-social behaviour") != -1  || json[i].["Crime type"].indexOf("Shoplifting") != -1) {
 			rating = 2;
 		}
-		if (json[i].[""].indexOf("") != -1) {
+		else if (json[i].["Crime type"].indexOf("Burglary") != -1) {
 			rating = 3;
 		}
-		if (json[i].[""].indexOf("") != -1) {
+		else if (json[i].["Crime type"].indexOf("Vehicle crime") != -1 || json[i].["Crime type"].indexOf("Criminal damage and arson") != -1 || json[i].["Crime type"].indexOf("Violent crime") != -1) {
 			rating = 4;
 		}
-		if (json[i].[""].indexOf("") != -1) {
+		else if (json[i].["Crime type"].indexOf("Public disorder and weapons") != -1) {
 			rating = 5;
 		}
-		xcoord = json[i].["Longitude"];
-		ycoord = json[i].["Latitude"];
-		
-		lon = XtoLon(xcoord);
-		lat = YtoLat(ycoord);
+		else {
+			rating = 3;
+		}
+
+		lon = json[i].["Longitude"];
+		lat = json[i].["Latitude"];
 	}
 }

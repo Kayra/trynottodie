@@ -36,7 +36,7 @@ function extract (data) {
 	var lat;
 	var lon;
 
-	var length = data.length;
+	var length = json.length;
 
 	document.body.innerHTML = "";
 
