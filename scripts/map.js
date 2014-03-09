@@ -38,11 +38,26 @@ function execute(results) {
             var latLng = new google.maps.LatLng(coords[0], coords[1]);
             var marker = new google.maps.Marker({
                 position: latLng,
-                map: map
+                map: map,
+                icon: getCircle(thisResult.properties.rating)
+
             });
          }
     }
 }
+
+function getCircle(magnitude) {
+  return {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: .2,
+    scale: Math.pow(2, magnitude) / Math.PI,
+    strokeColor: 'white',
+    strokeWeight: .5
+  };
+}
+
+
 
 // function execute(results) {
 
